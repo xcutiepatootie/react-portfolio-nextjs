@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import Link from "next/link";
 
 interface Link {
@@ -10,7 +10,6 @@ interface Link {
 
 interface Section {
   id: string;
-  color: string;
 }
 
 const links: Link[] = [
@@ -21,10 +20,10 @@ const links: Link[] = [
 ];
 
 const sections: Section[] = [
-  { id: "home", color: "bg-slate-500" },
-  { id: "about", color: "bg-green-300" },
-  { id: "projects", color: "bg-gray-300" },
-  { id: "contact", color: "bg-blue-300" },
+  { id: "home" },
+  { id: "about" },
+  { id: "projects" },
+  { id: "contact" },
 ];
 
 const Header: React.FC = () => {
@@ -65,6 +64,8 @@ const Header: React.FC = () => {
   const MotionLink = motion(Link);
   return (
     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: easeInOut }}
       transition={{ duration: 0.3 }}
       className={`absolute left-0 top-0 z-50 mb-96 h-16 w-full bg-transparent`}
     >

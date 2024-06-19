@@ -1,22 +1,12 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Home from "@/components/sections/Home";
 
-export default function Home() {
+export default function page() {
   return (
     <div className="h-screen w-screen snap-y snap-mandatory overflow-scroll scroll-smooth">
-      <section
-        className="flex h-screen w-screen snap-start flex-row items-center justify-center scroll-smooth bg-[#ECE3CE]"
-        id="home"
-      >
-        <div className="grid w-full grid-cols-2 place-items-center p-4">
-          <div className="flex items-center justify-center">Image Here</div>
-          <div className="flex flex-col items-center justify-center">
-            <h1>Calabia, Mackrislan A. "Macky"</h1>
-            <h2>Web Developer</h2>
-            <h4>and</h4>
-            <h2>Computer Science Graduate</h2>
-          </div>
-        </div>
-      </section>
+      <Home />
       <div
         className="flex h-screen w-screen snap-start flex-row items-center justify-center bg-[#739072]"
         id="about"
