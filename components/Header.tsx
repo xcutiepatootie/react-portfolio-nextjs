@@ -65,8 +65,8 @@ const Header: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: easeInOut }}
-      transition={{ duration: 0.3 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeIn" }}
       className={`absolute left-0 top-0 z-50 mb-96 h-16 w-full bg-transparent`}
     >
       <div className="flex h-full items-center justify-between px-6">
@@ -79,15 +79,19 @@ const Header: React.FC = () => {
         </motion.span>
         <div className="flex space-x-4">
           {links.map((link, index) => (
-            <MotionLink
-              animate={{ color: isHomeVisible ? "#1e293b" : "#ffffff" }}
-              transition={{ duration: 0.8 }}
+            <Link
               key={index}
               href={link.link}
               className="text-lg font-semibold"
             >
-              <span className="hidden md:inline">{link.name}</span>
-            </MotionLink>
+              <motion.span
+                animate={{ color: isHomeVisible ? "#1e293b" : "#ffffff" }}
+                transition={{ duration: 0.8 }}
+                className="hidden md:inline"
+              >
+                {link.name}
+              </motion.span>
+            </Link>
           ))}
         </div>
       </div>

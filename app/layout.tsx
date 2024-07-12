@@ -19,10 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={`${inter.className}`}>
-        <Header />
-        <FramerMotionProvider>{children}</FramerMotionProvider>
-        <Footer />
+      <body className={`h-screen ${inter.className}`}>
+        <div className="flex h-full flex-col">
+          <Header />
+          <main className="flex-grow overflow-hidden">
+            <FramerMotionProvider>{children}</FramerMotionProvider>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
