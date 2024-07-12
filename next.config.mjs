@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
 
-const nextConfig = {
-    assetPrefix: isProd ? '/react-portfolio-nextjs/' : '',
-    basePath: isProd ? '/react-portfolio-nextjs' : '',
-};
+const nextConfig = {};
 
 export default nextConfig;
