@@ -1,7 +1,7 @@
-"use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Home from "@/components/sections/Home";
+import About from "@/components/sections/About";
 
 export default function page() {
   /* const scrollRef = useRef(null);
@@ -66,7 +66,7 @@ export default function page() {
         className="flex h-screen w-screen snap-start flex-row items-center justify-center bg-[#739072]"
         id="about"
       >
-        About Me
+        <About/>
       </div>
       <div
         /*   ref={sections[2].ref} */
