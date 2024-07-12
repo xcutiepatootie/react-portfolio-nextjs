@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
-const images = ["/gradpic.jpg", "/altpic.jpg", "/altpic2.jpg"];
+const images = ["gradpic.jpg", "altpic.jpg", "altpic2.jpg"];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -56,7 +56,7 @@ const Home = () => {
                 className="absolute inset-0"
               >
                 <Image
-                  src={images[currentImageIndex]}
+                  src={`${prefix}/${images[currentImageIndex]}`}
                   alt="Image Here"
                   width={500}
                   height={500}
