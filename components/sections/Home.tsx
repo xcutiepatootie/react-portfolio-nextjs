@@ -1,4 +1,5 @@
 "use client";
+import { prefix } from "@/utils/prefix";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -20,7 +21,7 @@ const Home = () => {
 
   return (
     <motion.section
-       initial={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: easeInOut }}
       exit={{ opacity: 0 }}
       className="flex h-screen w-screen snap-start flex-row items-center justify-center scroll-smooth bg-[#ECE3CE]"
@@ -36,7 +37,7 @@ const Home = () => {
           {/* Blob background */}
           <div className="absolute inset-0 z-10 -mt-16 h-[700px] w-full">
             <Image
-              src="/blob.svg"
+              src={`${prefix}/blob.svg`}
               alt="Blob Background"
               layout="fill"
               className="object-cover"
