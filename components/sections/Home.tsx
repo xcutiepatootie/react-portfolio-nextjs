@@ -31,16 +31,16 @@ const Home = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { delay: 0.5 } }}
         viewport={{ once: true }}
-        className="grid w-full grid-cols-2 place-items-center p-4"
+        className="grid h-full w-full grid-cols-2 place-items-center p-4"
       >
         <div className="relative flex h-full w-full items-center justify-center">
           {/* Blob background */}
-          <div className="absolute inset-0 z-10 -mt-16 h-[700px] w-full">
+          <div className="absolute z-10 h-[750px] w-full">
             <Image
               src={`${prefix}/blob.svg`}
               alt="Blob Background"
-              layout="fill"
-              className="object-cover"
+              fill={true}
+              className="object-cover blur-md"
             />
           </div>
 
@@ -66,30 +66,53 @@ const Home = () => {
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <h1>Calabia, Mackrislan A. &quot;Macky&quot;</h1>
-          <h1 className="text-2xl">
-            I{" "}
-            <TypeAnimation
-              sequence={[
-                "am a Web Developer.",
-                1000,
-                "am a Certified MikroTik Network Associate.",
-                1000,
-                "am a Programmer.",
-                1000,
-                "enjoy learning new things and technologies.",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              /*  style={{ fontSize: "2em", display: "inline-block" }} */
-              repeat={Infinity}
-            />
-          </h1>
-
-          <h4>and a</h4>
-          <h2>Computer Science Graduate</h2>
+        <div className="flex h-max flex-col items-center justify-center">
+          <div className="flex h-full w-full flex-col items-center justify-evenly p-4 bg-blend-color-burn">
+            <div className="flex h-[500px] w-full flex-col items-center justify-evenly text-center text-2xl">
+              <h1 className="text-7xl font-medium">
+                Calabia, Mackrislan A.
+                <span className="font-light italic animate-pulse"> &quot;Macky&quot;</span>
+              </h1>
+              <TypeAnimation
+                className="text-6xl font-light"
+                sequence={[
+                  "I am a Web Developer.",
+                  2000,
+                  `I am a Certified MikroTik Network Associate.`,
+                  2000,
+                  "I am a Programmer.",
+                  2000,
+                  `I enjoy learning new things and technologies.`,
+                  2000,
+                ]}
+                wrapper="span"
+                speed={60}
+                style={{
+                  whiteSpace: "pre-line",
+                  display: "block",
+                }}
+                repeat={Infinity}
+              />
+              <h4 className="text-3xl">and a</h4>
+              <h2 className="text-4xl">Computer Science Graduate</h2>
+            </div>
+            <div className="h-[300px]">
+              <TypeAnimation
+                className="text-xl"
+                sequence={[
+                  "Recent Computer Science graduate with a strong foundation in web development. Proficient in HTML, CSS, JavaScript, and modern frameworks like React and Next.js. Demonstrated ability to design, develop and deploy responsiveand user-friendly web applications through academic projects. Passionate about learning new technologies and improving coding skills",
+                ]}
+                cursor={false}
+                wrapper="span"
+                speed={80}
+                style={{
+                  whiteSpace: "pre-line",
+                  display: "block",
+                }}
+                repeat={0}
+              />
+            </div>
+          </div>
         </div>
       </motion.div>
     </motion.section>
