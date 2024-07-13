@@ -77,12 +77,12 @@ const Header: React.FC = () => {
         >
           Logo Here
         </motion.span>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 pr-8">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.link}
-              className="text-lg font-semibold"
+              className="text-2xl font-semibold "
             >
               <motion.span
                 animate={{ color: isHomeVisible ? "#1e293b" : "#ffffff" }}
