@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Home from "@/components/sections/Home";
 import About from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
 
 export default function page() {
   /* const scrollRef = useRef(null);
@@ -66,14 +67,14 @@ export default function page() {
         className="flex h-screen w-screen snap-start flex-row items-center justify-center bg-[#739072]"
         id="about"
       >
-        <About/>
+        <About />
       </div>
       <div
         /*   ref={sections[2].ref} */
-        className="flex h-screen w-screen snap-start flex-row items-center justify-center bg-[#4F6F52]"
+        className="flex h-screen w-screen snap-start flex-row py-20 justify-center bg-[#4F6F52]"
         id="projects"
       >
-        Projects
+        <Projects />
       </div>
       <div
         /*   ref={sections[3].ref} */
