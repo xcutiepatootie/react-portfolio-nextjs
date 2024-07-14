@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { easeInOut, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Link {
   name: string;
@@ -75,14 +76,16 @@ const Header: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-lg font-semibold"
         >
-          Logo Here
+          <div className="h-32 w-32">
+            Logo Here
+          </div>
         </motion.span>
         <div className="flex space-x-4 pr-8">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.link}
-              className="text-2xl font-semibold "
+              className="text-2xl font-semibold"
             >
               <motion.span
                 animate={{ color: isHomeVisible ? "#1e293b" : "#ffffff" }}

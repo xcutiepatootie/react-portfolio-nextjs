@@ -60,7 +60,8 @@ const Home = () => {
                   alt="Image Here"
                   width={500}
                   height={500}
-                  className="rounded-full object-cover shadow-2xl drop-shadow-2xl"
+                  className="rounded-full w-auto h-auto object-cover shadow-2xl drop-shadow-2xl"
+                  priority
                 />
               </motion.div>
             </AnimatePresence>
@@ -100,7 +101,7 @@ const Home = () => {
               <TypeAnimation
                 className="text-xl"
                 sequence={[
-                  "Recent Computer Science graduate with a strong foundation in web development. Proficient in HTML, CSS, JavaScript, and modern frameworks like React and Next.js. Demonstrated ability to design, develop and deploy responsiveand user-friendly web applications through academic projects. Passionate about learning new technologies and improving coding skills",
+                  "Recent Computer Science graduated Cum Laude with a strong foundation in web development. Proficient in HTML, CSS, JavaScript, and modern frameworks like React and Next.js. Demonstrated ability to design, develop and deploy responsive and user-friendly web applications through academic projects. Passionate about learning new technologies and improving coding skills",
                 ]}
                 cursor={false}
                 wrapper="span"
