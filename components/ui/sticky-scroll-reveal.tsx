@@ -3,6 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa6";
+import { FaLink } from "react-icons/fa6";
 
 export const StickyScroll = ({
   content,
@@ -12,6 +15,10 @@ export const StickyScroll = ({
     title: string;
     description: string;
     content?: React.ReactNode | any;
+    link?: string;
+    githubLink?: string[];
+    highlights?: string[];
+    technologies?: string[];
   }[];
   contentClassName?: string;
 }) => {
@@ -38,6 +45,7 @@ export const StickyScroll = ({
       0,
     );
     setActiveCard(closestBreakpointIndex);
+    console.log("Breakpoints: ", cardsBreakpoints);
   });
 
   const backgroundColors = "var(--transparent)";
@@ -55,6 +63,8 @@ export const StickyScroll = ({
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
   }, [activeCard]);
 
+  const MotionLink = motion(Link);
+
   return (
     <motion.div
       /*  animate={{
@@ -66,7 +76,7 @@ export const StickyScroll = ({
       <div className="div relative flex w-[45rem] items-start px-4">
         <div className="w-full">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-32">
+            <div key={item.title + index} className="my-8 space-y-10">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -89,6 +99,93 @@ export const StickyScroll = ({
               >
                 {item.description}
               </motion.p>
+              {item.highlights && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="flex flex-col"
+                >
+                  <h2 className="text-3xl">Project Highlights</h2>
+                  {item.highlights.map((highlight, index) => (
+                    <li className="text-xl" key={`${highlight}${index}`}>
+                      {highlight}
+                    </li>
+                  ))}
+                </motion.div>
+              )}
+
+              {item.technologies && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="flex flex-col"
+                >
+                  <h2 className="text-3xl">Technologies Used</h2>
+                  {item.technologies.map((tech, index) => (
+                    <li className="text-xl" key={`${tech}${index}`}>
+                      {tech}
+                    </li>
+                  ))}
+                </motion.div>
+              )}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
+                className="flex flex-col"
+              >
+                <div className="mt-2">
+                  {item.link !== "Currently Down" &&
+                  item.link !== "Not Available" &&
+                  item.link ? (
+                    <>
+                      <MotionLink href={item.link} target="_blank">
+                        <span className="flex cursor-pointer items-center space-x-2 space-y-2 text-lg">
+                          <FaLink className="mr-2" />
+                          {item.link}
+                        </span>
+                      </MotionLink>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <span className="flex cursor-pointer items-center space-x-2 space-y-2 text-lg">
+                          <FaLink className="mr-2" />
+                          {item.link
+                            ? item.link
+                            : "Currently Down / Not Available"}
+                        </span>
+                      </div>
+                    </>
+                  )}
+
+                  {item.githubLink &&
+                    item.githubLink.map((link, index) => (
+                      <MotionLink
+                        href={link}
+                        target="_blank"
+                        key={`${link}${index}`}
+                      >
+                        <span className="flex cursor-pointer items-center space-x-2 space-y-2 text-lg">
+                          <FaGithub className="mr-2" />
+                          {link}
+                        </span>
+                      </MotionLink>
+                    ))}
+                </div>
+              </motion.div>
             </div>
           ))}
           <div className="h-40" />
@@ -96,7 +193,6 @@ export const StickyScroll = ({
       </div>
 
       <div
-        style={{ background: backgroundGradient }}
         className={cn(
           /*  "sticky flex items-center justify-center", */
           "sticky top-10 hidden h-[25rem] w-fit overflow-hidden rounded-md border border-black bg-white shadow-xl drop-shadow-xl lg:block",
