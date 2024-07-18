@@ -1,8 +1,11 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { easeInOut, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FaBars } from "react-icons/fa6";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTimes } from "react-icons/fa";
 
 interface Link {
   name: string;
@@ -29,6 +32,8 @@ const sections: Section[] = [
 
 const Header: React.FC = () => {
   const [isHomeVisible, setIsHomeVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const observers = useRef<IntersectionObserver[]>([]);
 
   useEffect(() => {
@@ -76,9 +81,7 @@ const Header: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-lg font-semibold"
         >
-          <div className="h-32 w-32">
-            Logo Here
-          </div>
+          <div className="h-32 w-32">Logo Here</div>
         </motion.span>
         <div className="flex space-x-4 pr-8">
           {links.map((link, index) => (
@@ -96,6 +99,65 @@ const Header: React.FC = () => {
               </motion.span>
             </Link>
           ))}
+          <div className="relative -right-10 top-0 z-30 flex md:hidden">
+            <AnimatePresence mode="wait">
+              {open ? (
+                <motion.div
+                  key="times"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaTimes onClick={() => setOpen(!open)} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="bars"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <FaBars onClick={() => setOpen(!open)} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <ul
+              className={`absolute left-0 z-40 w-full bg-white pb-12 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${open ? "top-[4.5rem]" : "top-[-490px]"}`}
+            >
+              <li className="my-7 flex items-center justify-center text-xl md:my-0 md:ml-8">
+                <div className="group m-auto flex cursor-pointer items-center justify-start gap-4 rounded-md p-2 px-5 duration-300 hover:bg-gray-900 hover:shadow-lg">
+                  <Link href={"/#home"}>
+                    <h3 className="text-base font-semibold text-gray-800 group-hover:text-white">
+                      Home
+                    </h3>
+                  </Link>
+                </div>
+                <div className="group m-auto flex cursor-pointer items-center justify-start gap-4 rounded-md p-2 px-5 duration-300 hover:bg-gray-900 hover:shadow-lg">
+                  <Link href={"/#about"}>
+                    <h3 className="text-base font-semibold text-gray-800 group-hover:text-white">
+                      About
+                    </h3>
+                  </Link>
+                </div>
+                <div className="group m-auto flex cursor-pointer items-center justify-start gap-4 rounded-md p-2 px-5 duration-300 hover:bg-gray-900 hover:shadow-lg">
+                  <Link href={"/#projects"}>
+                    <h3 className="text-base font-semibold text-gray-800 group-hover:text-white">
+                      Projects
+                    </h3>
+                  </Link>
+                </div>
+                <div className="group m-auto flex cursor-pointer items-center justify-start gap-4 rounded-md p-2 px-5 duration-300 hover:bg-gray-900 hover:shadow-lg">
+                  <Link href={"/#contact"}>
+                    <h3 className="text-base font-semibold text-gray-800 group-hover:text-white">
+                      Contact
+                    </h3>
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </motion.div>
