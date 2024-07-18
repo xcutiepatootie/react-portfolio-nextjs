@@ -24,18 +24,18 @@ const Home = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: easeInOut }}
       exit={{ opacity: 0 }}
-      className="flex h-screen w-screen snap-start flex-row items-center justify-center scroll-smooth bg-[#ECE3CE]"
+      className="h-full snap-start bg-[#ECE3CE] md:h-screen md:w-screen"
       id="home"
     >
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { delay: 0.5 } }}
         viewport={{ once: true }}
-        className="grid h-full w-full grid-cols-2 place-items-center p-4"
+        className="flex h-full w-full flex-col place-items-center p-4 md:grid md:grid-cols-2"
       >
         <div className="relative flex h-full w-full items-center justify-center">
           {/* Blob background */}
-          <div className="absolute z-10 h-[750px] w-full">
+          <div className="z absolute z-10 h-[350px] w-[350px] md:h-[750px] md:w-full">
             <Image
               src={`${prefix}/blob.svg`}
               alt="Blob Background"
@@ -45,7 +45,7 @@ const Home = () => {
           </div>
 
           {/* Image */}
-          <div className="relative z-20 h-[512px] w-[512px]">
+          <div className="relative top-2 z-20 h-[256px] w-[256px] md:h-[512px] md:w-[512px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentImageIndex}
@@ -60,7 +60,7 @@ const Home = () => {
                   alt="Image Here"
                   width={500}
                   height={500}
-                  className="rounded-full w-auto h-auto object-cover shadow-2xl drop-shadow-2xl"
+                  className="h-auto w-auto rounded-full object-cover shadow-2xl drop-shadow-2xl"
                   priority
                 />
               </motion.div>
@@ -68,14 +68,16 @@ const Home = () => {
           </div>
         </div>
         <div className="flex h-max flex-col items-center justify-center">
-          <div className="flex h-full w-full flex-col items-center justify-evenly p-4 bg-blend-color-burn">
-            <div className="flex h-[500px] w-full flex-col items-center justify-evenly text-center text-2xl">
-              <h1 className="text-7xl font-medium">
+          <div className="flex h-full w-full flex-col items-center justify-evenly p-2 bg-blend-color-burn md:p-4">
+            <div className="flex w-full flex-col items-center justify-evenly text-center text-2xl md:h-[500px]">
+              <h1 className="text-4xl font-medium md:text-7xl">
                 Calabia, Mackrislan A.
-                <span className="font-light italic animate-pulse"> &quot;Macky&quot;</span>
+                <span className="animate-pulse font-light italic">
+                  &quot;Macky&quot;
+                </span>
               </h1>
               <TypeAnimation
-                className="text-6xl font-light"
+                className="text-2xl font-light md:text-6xl"
                 sequence={[
                   "I am a Web Developer.",
                   2000,
@@ -94,12 +96,12 @@ const Home = () => {
                 }}
                 repeat={Infinity}
               />
-              <h4 className="text-3xl">and a</h4>
-              <h2 className="text-4xl">Computer Science Graduate</h2>
+              <h4 className="text-xl md:text-3xl">and a</h4>
+              <h2 className="text2x md:text-4xl">Computer Science Graduate</h2>
             </div>
             <div className="h-[300px]">
               <TypeAnimation
-                className="text-xl"
+                className="text-lg md:text-xl"
                 sequence={[
                   "Recent Computer Science graduated Cum Laude with a strong foundation in web development. Proficient in HTML, CSS, JavaScript, and modern frameworks like React and Next.js. Demonstrated ability to design, develop and deploy responsive and user-friendly web applications through academic projects. Passionate about learning new technologies and improving coding skills",
                 ]}
