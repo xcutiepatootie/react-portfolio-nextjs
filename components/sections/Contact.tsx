@@ -9,7 +9,7 @@ import { FaGithub } from "react-icons/fa6";
 
 const Contact = () => {
   return (
-    <div className="mx-12 h-3/4 w-3/4 rounded-lg bg-slate-200 p-4 shadow-2xl">
+    <div className="mx-6 h-3/4 w-full rounded-lg bg-slate-200 p-4 shadow-2xl">
       <h1 className="animate-pulse text-5xl font-semibold italic">
         Say Hello!
       </h1>
