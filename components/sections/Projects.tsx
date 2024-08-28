@@ -222,7 +222,7 @@ const Projects = () => {
       title: "Completed",
       value: "completed",
       content: (
-        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#81d693] to-[#95b4a5] p-10 text-xl font-bold text-white md:text-4xl">
+        <div className="relative h-[60vh] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#81d693] to-[#95b4a5] p-10 text-xl font-bold text-white md:h-full md:text-4xl">
           <p className="text-">Completed Projects</p>
           <StickyScroll content={Completed_content} />
         </div>
@@ -232,7 +232,7 @@ const Projects = () => {
       title: "Work In Progress",
       value: "wip",
       content: (
-        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#95b4a5] to-[#81d693] p-10 text-xl font-bold text-white md:text-4xl">
+        <div className="relative h-[60vh] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#95b4a5] to-[#81d693] p-10 text-xl font-bold text-white md:h-full md:text-4xl">
           <p className="text-">Work In Progress (WiP)</p>
           <StickyScroll content={wip_content} />
         </div>

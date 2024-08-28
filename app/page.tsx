@@ -18,7 +18,7 @@ export default function page() {
         <About />
       </div>
       <div
-        className="flex h-screen w-screen snap-start flex-col justify-center bg-[#4F6F52] py-20"
+        className="flex h-screen w-screen snap-start flex-col justify-start bg-[#4F6F52] py-20 md:items-center md:justify-center"
         id="projects"
       >
         <Projects />

@@ -14,11 +14,11 @@ const Contact = () => {
         Say Hello!
       </h1>
       <hr className="my-4 border-t-2 border-slate-500" />
-      <div className="mt-2 grid grid-cols-2 place-content-start place-items-center">
-        <div className="flex h-full flex-col">
+      <div className="flex flex-col gap-2 md:mt-2 lg:grid lg:grid-cols-2 lg:place-content-start lg:place-items-center">
+        <div className="flex h-full flex-col flex-wrap">
           <span className="text-xl font-light">
-            Have a question or want to work together? I&apos;d love to hear
-            from you!
+            Have a question or want to work together? I&apos;d love to hear from
+            you!
           </span>
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaEnvelope />

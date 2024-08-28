@@ -36,35 +36,33 @@ const About = () => {
         rangeY={900}
         className="px-2 py-4 md:px-10"
       >
-        <div className="grid grid-cols-3">
+        <div className="md:grid md:grid-cols-3">
           <div ref={ref} className="p-6 text-justify">
             {animationStarted && (
-              <div>
-                <div>
-                  <TypeAnimation
-                    className="text-2xl font-light text-zinc-50"
-                    sequence={[sequenceParagpraph]}
-                    cursor={false}
-                    wrapper="span"
-                    speed={90}
-                    style={{
-                      whiteSpace: "pre-line",
-                      display: "block",
-                    }}
-                    repeat={0}
-                  />
-                </div>
+              <div className="h-[30vh] overflow-y-auto md:h-[60vh]">
+                <TypeAnimation
+                  className="text-2xl font-light text-zinc-50 md:text-3xl"
+                  sequence={[sequenceParagpraph]}
+                  cursor={false}
+                  wrapper="span"
+                  speed={90}
+                  style={{
+                    whiteSpace: "pre-line",
+                    display: "block",
+                  }}
+                  repeat={0}
+                />
               </div>
             )}
           </div>
-          <div className="col-span-2 flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:col-span-2">
             <BackgroundGradient
               animate={false}
-              className="h-[700px] w-full overflow-scroll rounded-[22px] bg-slate-100 p-4 dark:bg-zinc-900 sm:p-10"
+              className="h-[400px] w-full overflow-scroll rounded-[22px] bg-slate-100 p-4 dark:bg-zinc-900 sm:p-10 md:h-[700px]"
             >
               {about_cards.map((card) => (
                 <div key={card.id}>
-                  <div className="grid grid-cols-5 place-content-center">
+                  <div className="flex flex-col lg:grid lg:grid-cols-5 lg:place-content-center">
                     <h1 className="text-3xl">{card.title}</h1>
                     <div className="col-span-4">{card.content}</div>
                   </div>

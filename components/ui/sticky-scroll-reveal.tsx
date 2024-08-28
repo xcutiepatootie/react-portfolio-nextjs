@@ -22,7 +22,7 @@ export const StickyScroll = ({
   }[];
   contentClassName?: string;
 }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
+  const [activeCard, setActiveCard] = useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
@@ -45,10 +45,8 @@ export const StickyScroll = ({
       0,
     );
     setActiveCard(closestBreakpointIndex);
-    console.log("Breakpoints: ", cardsBreakpoints);
   });
 
-  const backgroundColors = "var(--transparent)";
   const linearGradients = [
     "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
     "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
@@ -67,83 +65,64 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      /*  animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
-      }} */
-      className="relative mt-2 flex h-[30rem] w-full items-start justify-center space-x-10 overflow-y-auto rounded-md p-6"
+      className="relative mt-2 flex h-auto max-h-[80vh] w-full items-start justify-center space-x-4 overflow-y-auto rounded-md p-4 lg:space-x-10 lg:p-6"
       ref={ref}
     >
-      <div className="div relative flex w-[45rem] items-start px-4">
+      <div className="relative flex w-full max-w-[90vw] items-start px-4 lg:w-[45rem]">
         <div className="w-full">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-8 space-y-10">
+            <div
+              key={item.title + index}
+              className="my-8 space-y-6 lg:space-y-10"
+            >
               <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-5xl font-bold italic text-slate-100 underline"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                className="text-3xl font-bold italic text-slate-100 underline lg:text-5xl"
               >
                 {item.title}
               </motion.h2>
               <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="mt-12 text-justify text-2xl text-slate-50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                className="mt-6 text-justify text-lg text-slate-50 lg:mt-12 lg:text-2xl"
               >
                 {item.description}
               </motion.p>
               {item.highlights && (
                 <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                   className="flex flex-col"
                 >
-                  <h2 className="text-3xl">Project Highlights</h2>
+                  <h2 className="text-2xl lg:text-3xl">Project Highlights</h2>
                   {item.highlights.map((highlight, index) => (
-                    <li className="text-xl" key={`${highlight}${index}`}>
+                    <li
+                      className="text-lg lg:text-xl"
+                      key={`${highlight}${index}`}
+                    >
                       {highlight}
                     </li>
                   ))}
                 </motion.div>
               )}
-
               {item.technologies && (
                 <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: activeCard === index ? 1 : 0.3,
-                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                   className="flex flex-col"
                 >
-                  <h2 className="text-3xl">Technologies Used</h2>
+                  <h2 className="text-2xl lg:text-3xl">Technologies Used</h2>
                   {item.technologies.map((tech, index) => (
-                    <li className="text-xl" key={`${tech}${index}`}>
+                    <li className="text-lg lg:text-xl" key={`${tech}${index}`}>
                       {tech}
                     </li>
                   ))}
                 </motion.div>
               )}
-
               <motion.div
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                 className="flex flex-col"
               >
                 <div className="mt-2">
@@ -159,16 +138,14 @@ export const StickyScroll = ({
                       </MotionLink>
                     </>
                   ) : (
-                    <>
-                      <div>
-                        <span className="flex cursor-pointer items-center space-x-2 space-y-2 text-lg">
-                          <FaLink className="mr-2" />
-                          {item.link
-                            ? item.link
-                            : "Currently Down / Not Available"}
-                        </span>
-                      </div>
-                    </>
+                    <div>
+                      <span className="flex cursor-pointer items-center space-x-2 space-y-2 text-lg">
+                        <FaLink className="mr-2" />
+                        {item.link
+                          ? item.link
+                          : "Currently Down / Not Available"}
+                      </span>
+                    </div>
                   )}
 
                   {item.githubLink &&
@@ -194,7 +171,6 @@ export const StickyScroll = ({
 
       <div
         className={cn(
-          /*  "sticky flex items-center justify-center", */
           "sticky top-10 hidden h-[25rem] w-fit overflow-hidden rounded-md border border-black bg-white shadow-xl drop-shadow-xl lg:block",
           contentClassName,
         )}
