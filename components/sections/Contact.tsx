@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaEnvelope } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
@@ -22,17 +23,23 @@ const Contact = () => {
           </span>
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaEnvelope />
-            <h2>mackycalabia@gmail.com</h2>
+            <Link href={"mailto:mackycalabia@gmail.com"}>
+              <h2>mackycalabia@gmail.com</h2>
+            </Link>
           </span>
 
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaLinkedin />
-            <h2>https://www.linkedin.com/in/mackrislan-calabia-mcee/</h2>
+            <Link href={"https://www.linkedin.com/in/mackrislan-calabia-mcee/"}>
+              <h2>https://www.linkedin.com/in/mackrislan-calabia-mcee/</h2>
+            </Link>
           </span>
 
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaGithub />
-            <h2>https://github.com/xcutiepatootie</h2>
+            <Link href={"https://github.com/xcutiepatootie"}>
+              <h2>https://github.com/xcutiepatootie</h2>
+            </Link>
           </span>
         </div>
         <div className="flex h-full flex-col">
@@ -42,15 +49,21 @@ const Contact = () => {
 
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaFacebook />
-            <h2>https://www.facebook.com/mcee.xoxo/</h2>
+            <Link href={"https://www.facebook.com/mcee.xoxo/"}>
+              <h2>https://www.facebook.com/mcee.xoxo/</h2>
+            </Link>
           </span>
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaInstagram />
-            <h2>https://www.instagram.com/mceexoxo_/</h2>
+            <Link href={"https://www.instagram.com/mceexoxo_/"}>
+              <h2>https://www.instagram.com/mceexoxo_/</h2>
+            </Link>
           </span>
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaXTwitter />
-            <h2>https://x.com/cutiemacky0_0</h2>
+            <Link href={"https://x.com/cutiemacky0_0"}>
+              <h2>https://x.com/cutiemacky0_0</h2>
+            </Link>
           </span>
           <span className="flex cursor-pointer items-center space-x-2 text-lg">
             <FaDiscord />
