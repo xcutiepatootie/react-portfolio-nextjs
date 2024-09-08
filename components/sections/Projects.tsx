@@ -151,8 +151,8 @@ const Completed_content = [
     link: "https://react-portfolio-nextjs-git-main-xcutiepatooties-projects.vercel.app/",
     githubLink: ["https://github.com/xcutiepatootie/react-portfolio-nextjs"],
     highlights: [
-      " My very first project using React.js and Next.js",
-      " Used mongoose for MongoDB connection",
+      "My very first portfolio utilizes Next.js",
+      "Minimalist Approach",
     ],
     technologies: [
       "TypeScript",
